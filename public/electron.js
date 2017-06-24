@@ -7,7 +7,7 @@ const Menu = electron.Menu;
 
 const path = require("path");
 const url = require("url");
-const isDev = require('electron-is-dev');
+const isDev = require("electron-is-dev");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,11 +19,13 @@ function createWindow() {
 
   // and load the index.html of the app.
   mainWindow.loadURL(
-    isDev ? 'http://localhost:3000' : url.format({
-      pathname: path.join(__dirname, "../build/index.html"),
-      protocol: "file:",
-      slashes: true
-    })
+    isDev
+      ? "http://localhost:3000"
+      : url.format({
+          pathname: path.join(__dirname, "../build/index.html"),
+          protocol: "file:",
+          slashes: true
+        })
   );
 
   // Open the DevTools.
@@ -80,7 +82,7 @@ function createMenus() {
         {
           label: "Learn More",
           click() {
-            require("electron").shell.openExternal("https://electron.atom.io");
+            require("electron").shell.openExternal("https://github.com/JessThrysoee/graphiql-app");
           }
         }
       ]
@@ -153,3 +155,20 @@ app.on("activate", function() {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+if (!isDev) {
+  const autoUpdater = require("electron-updater").autoUpdater;
+
+  autoUpdater.on("update-downloaded", (ev, info) => {
+    // Wait 5 seconds, then quit and install
+    // In your application, you don't need to wait 5 seconds.
+    // You could call autoUpdater.quitAndInstall(); immediately
+    setTimeout(function() {
+      autoUpdater.quitAndInstall();
+    }, 5000);
+  });
+
+  app.on("ready", function() {
+    autoUpdater.checkForUpdates();
+  });
+}
