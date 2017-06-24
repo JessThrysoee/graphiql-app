@@ -1,0 +1,55 @@
+{
+   "name": "GraphiQL",
+   "version": "1.0.0",
+   "description": "GraphiQL App",
+   "author": "Jess Thrysoee",
+   "private": true,
+   "main": "public/electron.js",
+   "homepage": "./",
+   "dependencies": {
+      "electron-is-dev": "^0.1.2",
+      "graphiql": "^0.11.0",
+      "graphql": "^0.10.3",
+      "react": "^15.6.1",
+      "react-dom": "^15.6.1"
+   },
+   "devDependencies": {
+      "concurrently": "^3.5.0",
+      "electron": "^1.7.3",
+      "electron-builder": "^19.9.1",
+      "react-scripts": "1.0.7",
+      "wait-on": "^2.0.2"
+   },
+   "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject",
+
+      "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+
+      "preelectron-package": "npm run build",
+      "electron-package": "build --win --mac --em.main=build/electron.js",
+
+      "preelectron-publish": "npm run build",
+      "electron-publish": "build --win --mac --em.main=build/electron.js --publish always"
+   },
+   "build": {
+      "appId": "dk.thrysoee.graphiql",
+      "mac": {
+         "category": "public.app-category.developer-tools",
+         "target": "zip"
+      },
+      "files": [
+         "build/**/*"
+      ],
+      "directories": {
+         "buildResources": "assets"
+      },
+      "publish": [{
+         "provider": "github",
+         "owner": "JessThrysoee",
+         "repo": "graphiql-app"
+      }]
+   }
+}
