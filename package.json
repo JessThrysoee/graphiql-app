@@ -1,6 +1,6 @@
 {
    "name": "GraphiQL",
-   "version": "1.0.1",
+   "version": "1.0.0",
    "description": "GraphiQL App",
    "author": "Jess Thrysoee",
    "private": true,
@@ -11,13 +11,13 @@
       "graphiql": "^0.11.0",
       "graphql": "^0.10.3",
       "react": "^15.6.1",
-      "react-dom": "^15.6.1"
+      "react-dom": "^15.6.1",
+      "electron-updater": "^2.4.3"
    },
    "devDependencies": {
       "concurrently": "^3.5.0",
       "electron": "^1.7.3",
       "electron-builder": "^19.9.1",
-      "electron-updater": "^2.4.3",
       "react-scripts": "1.0.7",
       "wait-on": "^2.0.2"
    },
