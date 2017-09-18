@@ -1,24 +1,24 @@
 {
    "name": "GraphiQL",
-   "version": "1.0.4",
+   "version": "1.0.5",
    "description": "GraphiQL App",
    "author": "Jess Thrysoee",
    "private": true,
    "main": "public/electron.js",
    "homepage": "./",
    "dependencies": {
-      "electron-is-dev": "^0.2.0",
-      "electron-updater": "^2.4.3",
-      "graphiql": "^0.11.2",
-      "graphql": "^0.10.3",
+      "electron-is-dev": "^0.3.0",
+      "electron-updater": "^2.8.9",
+      "graphiql": "^0.11.3",
+      "graphql": "^0.11.3",
       "react": "^15.6.1",
       "react-dom": "^15.6.1"
    },
    "devDependencies": {
       "concurrently": "^3.5.0",
-      "electron": "^1.7.3",
-      "electron-builder": "^19.11.1",
-      "react-scripts": "^1.0.10",
+      "electron": "^1.8.0",
+      "electron-builder": "^19.28.4",
+      "react-scripts": "^1.0.13",
       "wait-on": "^2.0.2"
    },
    "scripts": {
