@@ -48,7 +48,7 @@ class CustomGraphiQL extends React.Component {
         <GraphiQL.Toolbar>
           <GraphiQL.Button
             onClick={() => this.graphiql.handlePrettifyQuery()}
-            title="Prettify Query"
+            title="Prettify Query (Shift-Ctrl-P)"
             label="Prettify"
           />
           <GraphiQL.Button
@@ -68,7 +68,6 @@ class CustomGraphiQL extends React.Component {
             title="Set GraphQL Endpoint"
             onClick={this.handleSetEndpoint}
           />
-
         </GraphiQL.Toolbar>
       </GraphiQL>
     );
